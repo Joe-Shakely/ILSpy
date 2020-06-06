@@ -19,11 +19,11 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Windows;
-
 using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Folding;
 using ICSharpCode.AvalonEdit.Highlighting;
@@ -147,7 +147,11 @@ namespace ICSharpCode.ILSpy.TextView
 		
 		#region Text Document
 		TextDocument textDocument;
-		
+
+		//readonly string path = @"C:\Users\jshakely\source\repos\SC.Systems";
+		private const string fileName = @"C:\Users\jshakely\source\repos\SC.Systems\{0}.cs";
+
+
 		/// <summary>
 		/// Prepares the TextDocument.
 		/// This method may be called by the background thread writing to the output.
@@ -159,8 +163,13 @@ namespace ICSharpCode.ILSpy.TextView
 		/// </remarks>
 		public void PrepareDocument()
 		{
+			var destinationFileName = new StringBuilder(string.Format(fileName, this.Title));
+			
+			//Debug.WriteLine("{0}", destinationFileName.ToString());
+
 			if (textDocument == null) {
 				textDocument = new TextDocument(b.ToString());
+				System.IO.File.WriteAllText(destinationFileName.ToString(), b.ToString());				
 				textDocument.SetOwnerThread(null); // release ownership
 			}
 		}
@@ -176,7 +185,7 @@ namespace ICSharpCode.ILSpy.TextView
 			return textDocument;
 		}
 		#endregion
-		
+
 		public void Indent()
 		{
 			if (IgnoreNewLineAndIndent)
