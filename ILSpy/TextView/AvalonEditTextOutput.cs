@@ -149,7 +149,7 @@ namespace ICSharpCode.ILSpy.TextView
 		TextDocument textDocument;
 
 		//readonly string path = @"C:\Users\jshakely\source\repos\SC.Systems";
-		private const string fileName = @"C:\Users\jshakely\source\repos\SC.Systems\{0}.cs";
+		private const string fileName = @"C:\Users\jshakely\source\repos\SC.Utils.SysPages\{0}.cs";
 
 
 		/// <summary>
