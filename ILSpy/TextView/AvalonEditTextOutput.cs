@@ -160,6 +160,7 @@ namespace ICSharpCode.ILSpy.TextView
 		/// <remarks>
 		/// Calling this method on the background thread ensures the TextDocument's line tokenization
 		/// runs in the background and does not block the GUI.
+		/// It will also create a .cs file for every class name clicked on - Messi
 		/// </remarks>
 		public void PrepareDocument()
 		{

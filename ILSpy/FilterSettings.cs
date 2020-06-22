@@ -81,6 +81,7 @@ namespace ICSharpCode.ILSpy
 
 		ApiVisibility showApiLevel;
 
+		ApiCreateClass createClass;
 		/// <summary>
 		/// Gets/Sets whether public, internal or all API members should be shown.
 		/// </summary>
@@ -117,6 +118,17 @@ namespace ICSharpCode.ILSpy
 		}
 
 		public bool ApiVisAll {
+			get { return showApiLevel == ApiVisibility.All; }
+			set {
+				if (value == (showApiLevel == ApiVisibility.All)) return;
+				ShowApiLevel = ApiVisibility.All;
+				OnPropertyChanged(nameof(ApiVisPublicOnly));
+				OnPropertyChanged(nameof(ApiVisPublicAndInternal));
+				OnPropertyChanged(nameof(ApiVisAll));
+			}
+		}
+
+		public bool ApiCreateClass {
 			get { return showApiLevel == ApiVisibility.All; }
 			set {
 				if (value == (showApiLevel == ApiVisibility.All)) return;
@@ -187,5 +199,11 @@ namespace ICSharpCode.ILSpy
 		PublicOnly,
 		PublicAndInternal,
 		All
+	}
+
+	public enum ApiCreateClass
+	{
+		Yes,
+		No
 	}
 }
