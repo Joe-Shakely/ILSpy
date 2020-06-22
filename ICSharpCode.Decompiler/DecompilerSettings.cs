@@ -296,6 +296,24 @@ namespace ICSharpCode.Decompiler
 			}
 		}
 
+		bool asyncCreateClass = false;
+
+		/// <summary>
+		/// Decompile IAsyncEnumerator/IAsyncEnumerable.
+		/// Only has an effect if <see cref="AsyncAwait"/> is enabled.
+		/// </summary>
+		[Category("CreateClass")]
+		[Description("DecompilerSettings.AsyncEnumerator")]
+		public bool AsyncCreateClass {
+			get { return asyncEnumerator; }
+			set {
+				if (asyncCreateClass != value) {
+					asyncCreateClass = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
 		bool decimalConstants = true;
 
 		/// <summary>

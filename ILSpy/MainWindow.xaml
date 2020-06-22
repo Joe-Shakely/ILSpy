@@ -145,6 +145,7 @@
 					  IsEnabled="{Binding ActiveTabPage.SupportsLanguageSwitching, Source={x:Static docking:DockWorkspace.Instance}}"
 			          ItemsSource="{Binding SelectedItem.LanguageVersions, ElementName=languageComboBox, UpdateSourceTrigger=PropertyChanged}"
 			          SelectedItem="{Binding SessionSettings.FilterSettings.LanguageVersion, UpdateSourceTrigger=PropertyChanged}"/>
+			<CheckBox x:Name="bCreateClass" Content="CreateClass?" VerticalAlignment="Top" FontSize="10" ClickMode="Press" Cursor="Hand"/>
 		</ToolBar>
 		<Border DockPanel.Dock="Top" BorderBrush="Black" BorderThickness="1" Name="updatePanel" Visibility="Collapsed">
 			<DockPanel KeyboardNavigation.TabNavigation="Contained">

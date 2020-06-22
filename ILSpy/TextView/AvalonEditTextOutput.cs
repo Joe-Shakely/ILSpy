@@ -31,6 +31,7 @@ using ICSharpCode.AvalonEdit.Rendering;
 using ICSharpCode.Decompiler.Metadata;
 using ICSharpCode.Decompiler.TypeSystem;
 using TextLocation = ICSharpCode.Decompiler.CSharp.Syntax.TextLocation;
+using System.Windows.Forms;
 
 namespace ICSharpCode.ILSpy.TextView
 {
@@ -148,7 +149,6 @@ namespace ICSharpCode.ILSpy.TextView
 		#region Text Document
 		TextDocument textDocument;
 
-		//readonly string path = @"C:\Users\jshakely\source\repos\SC.Systems";
 		private const string fileName = @"C:\Users\jshakely\source\repos\SC.Utils.SysPages\{0}.cs";
 
 
@@ -170,7 +170,9 @@ namespace ICSharpCode.ILSpy.TextView
 
 			if (textDocument == null) {
 				textDocument = new TextDocument(b.ToString());
-				System.IO.File.WriteAllText(destinationFileName.ToString(), b.ToString());				
+				if (this.Title != "New Tab") {
+					System.IO.File.WriteAllText(destinationFileName.ToString(), b.ToString());
+				}								
 				textDocument.SetOwnerThread(null); // release ownership
 			}
 		}
