@@ -32,6 +32,7 @@ using ICSharpCode.Decompiler.Metadata;
 using ICSharpCode.Decompiler.TypeSystem;
 using TextLocation = ICSharpCode.Decompiler.CSharp.Syntax.TextLocation;
 using System.Windows.Forms;
+using ICSharpCode.Decompiler.CSharp.Syntax.PatternMatching;
 
 namespace ICSharpCode.ILSpy.TextView
 {
@@ -149,8 +150,7 @@ namespace ICSharpCode.ILSpy.TextView
 		#region Text Document
 		TextDocument textDocument;
 
-		private const string fileName = @"C:\Users\jshakely\source\repos\SC.Utils.SysPages\{0}.cs";
-
+		private const string fileName = @"C:\Users\jshakely\source\repos\VClasses\{0}.cs";
 
 		/// <summary>
 		/// Prepares the TextDocument.
@@ -165,18 +165,20 @@ namespace ICSharpCode.ILSpy.TextView
 		public void PrepareDocument()
 		{
 			var destinationFileName = new StringBuilder(string.Format(fileName, this.Title));
-			
-			//Debug.WriteLine("{0}", destinationFileName.ToString());
+
+			bool bHasSpace = Title.ToString().Contains(" ");
+			bool bHasPeriod = Title.ToString().Contains(".");
 
 			if (textDocument == null) {
 				textDocument = new TextDocument(b.ToString());
-				if (this.Title != "New Tab") {
+				if (this.Title != "About" & bHasSpace == false & bHasPeriod == false) {
 					System.IO.File.WriteAllText(destinationFileName.ToString(), b.ToString());
 				}								
 				textDocument.SetOwnerThread(null); // release ownership
 			}
 		}
-		
+
+
 		/// <summary>
 		/// Retrieves the TextDocument.
 		/// Once the document is retrieved, it can no longer be written to.

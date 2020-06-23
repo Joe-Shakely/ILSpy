@@ -80,8 +80,6 @@ namespace ICSharpCode.ILSpy
 		}
 
 		ApiVisibility showApiLevel;
-
-		ApiCreateClass createClass;
 		/// <summary>
 		/// Gets/Sets whether public, internal or all API members should be shown.
 		/// </summary>

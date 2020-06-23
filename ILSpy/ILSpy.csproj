@@ -211,6 +211,7 @@
     <Compile Include="Metadata\MetadataProtocolHandler.cs" />
     <Compile Include="Metadata\MetadataTableTreeNode.cs" />
     <Compile Include="Metadata\DebugMetadataTreeNode.cs" />
+    <Compile Include="TextView\Extensions.cs" />
     <Compile Include="ViewModels\LegacyToolPaneModel.cs" />
     <Compile Include="ViewModels\ManageAssemblyListsViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
