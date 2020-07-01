@@ -150,7 +150,13 @@ namespace ICSharpCode.ILSpy.TextView
 		#region Text Document
 		TextDocument textDocument;
 
-		private const string fileName = @"C:\Users\jshakely\source\repos\VClasses\{0}.cs";
+		private const string path = @"C:\Users\jshakely\source\repos\ApexSQL.Common.Shared\{0}.cs";
+
+		public static bool FilePathHasInvalidChars(string path)
+		{
+
+			return (!string.IsNullOrEmpty(path) && path.IndexOfAny(System.IO.Path.GetInvalidPathChars()) >= 0);
+		}
 
 		/// <summary>
 		/// Prepares the TextDocument.
@@ -160,18 +166,22 @@ namespace ICSharpCode.ILSpy.TextView
 		/// <remarks>
 		/// Calling this method on the background thread ensures the TextDocument's line tokenization
 		/// runs in the background and does not block the GUI.
-		/// It will also create a .cs file for every class name clicked on - Messi
+		/// <para>
+		/// Messi remarks below:
+		/// </para>
+		/// It will also create a .cs file for every class name clicked on
 		/// </remarks>
 		public void PrepareDocument()
 		{
-			var destinationFileName = new StringBuilder(string.Format(fileName, this.Title));
+			var destinationFileName = new StringBuilder(string.Format(path, this.Title));
 
+			bool bFileInvalidChars = FilePathHasInvalidChars(destinationFileName.ToString());
 			bool bHasSpace = Title.ToString().Contains(" ");
 			bool bHasPeriod = Title.ToString().Contains(".");
 
 			if (textDocument == null) {
 				textDocument = new TextDocument(b.ToString());
-				if (this.Title != "About" & bHasSpace == false & bHasPeriod == false) {
+				if (this.Title != "About" & bHasSpace == false & bHasPeriod == false & bFileInvalidChars == false) {
 					System.IO.File.WriteAllText(destinationFileName.ToString(), b.ToString());
 				}								
 				textDocument.SetOwnerThread(null); // release ownership
