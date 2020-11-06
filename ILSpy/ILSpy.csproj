@@ -831,6 +831,10 @@
     <None Include="@(Resource)" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="NewFolder\" />
+  </ItemGroup>
+
   <PropertyGroup>
     <VCBasePath>$(MSBuildToolsPath)\..\..\..\VC\</VCBasePath>
     <VCToolsVersionPropsFileNameDefault>Microsoft.VCToolsVersion.default.props</VCToolsVersionPropsFileNameDefault>
