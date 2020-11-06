@@ -150,7 +150,7 @@ namespace ICSharpCode.ILSpy.TextView
 		#region Text Document
 		TextDocument textDocument;
 
-		private const string path = @"C:\Users\jshakely\source\repos\ApexSQL.Common.Shared\{0}.cs";
+		private const string path = @"C:\Users\jshakely\source\repos\lmhcontrols\{0}.cs";
 
 		public static bool FilePathHasInvalidChars(string path)
 		{
@@ -181,7 +181,7 @@ namespace ICSharpCode.ILSpy.TextView
 
 			if (textDocument == null) {
 				textDocument = new TextDocument(b.ToString());
-				if (this.Title != "About" & bHasSpace == false & bHasPeriod == false & bFileInvalidChars == false) {
+				if (this.Title != "About" & this.Title != "References" & bHasSpace == false & bHasPeriod == false & bFileInvalidChars == false) {
 					System.IO.File.WriteAllText(destinationFileName.ToString(), b.ToString());
 				}								
 				textDocument.SetOwnerThread(null); // release ownership

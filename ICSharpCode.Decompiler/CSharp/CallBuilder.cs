@@ -1369,7 +1369,7 @@ namespace ICSharpCode.Decompiler.CSharp
 				var savedTarget = target;
 				for (; step < 7; step++) {
 					ResolveResult targetResolveResult;
-					//TODO: why there is an check for IsLocalFunction here, it should be unreachable in old code
+					//TODO: why there is a check for IsLocalFunction here, it should be unreachable in old code
 					if (localFunction == null && (step & 1) != 0) {
 						targetResolveResult = savedTarget.ResolveResult;
 						target = savedTarget;
