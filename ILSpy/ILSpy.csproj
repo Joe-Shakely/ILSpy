@@ -468,6 +468,7 @@
     <EmbeddedResource Include="TextView\Asm-Mode.xshd" />
     <None Include="app.config" />
     <None Include="app.manifest" />
+    <None Include="CreateSolutionCodeMap.dgml" />
     <None Include="Properties\app.config.template" />
     <None Include="Properties\AssemblyInfo.template.cs" />
     <None Include="Properties\launchSettings.json" />
