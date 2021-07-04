@@ -125,9 +125,7 @@
     <Compile Include="Commands\ShowDebugSteps.cs" />
     <Compile Include="Commands\SortAssemblyListCommand.cs" />
     <Compile Include="Controls\BoolToVisibilityConverter.cs" />
-    <Compile Include="Controls\CustomDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Controls\CustomDialog.cs" />
     <Compile Include="Controls\GridViewColumnAutoSize.cs" />
     <Compile Include="Controls\MarkupExtensions.cs" />
     <Compile Include="Controls\ResourceObjectTable.xaml.cs">
@@ -211,6 +209,7 @@
     <Compile Include="Metadata\MetadataProtocolHandler.cs" />
     <Compile Include="Metadata\MetadataTableTreeNode.cs" />
     <Compile Include="Metadata\DebugMetadataTreeNode.cs" />
+    <Compile Include="TextView\Extensions.cs" />
     <Compile Include="ViewModels\LegacyToolPaneModel.cs" />
     <Compile Include="ViewModels\ManageAssemblyListsViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
@@ -469,6 +468,7 @@
     <EmbeddedResource Include="TextView\Asm-Mode.xshd" />
     <None Include="app.config" />
     <None Include="app.manifest" />
+    <None Include="CreateSolutionCodeMap.dgml" />
     <None Include="Properties\app.config.template" />
     <None Include="Properties\AssemblyInfo.template.cs" />
     <None Include="Properties\launchSettings.json" />
